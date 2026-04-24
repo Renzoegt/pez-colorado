@@ -16,4 +16,3 @@ def es_talla_permitida(especie, medida):
     if talla_minima is None:
         return False
     return medida >= talla_minima
-
