@@ -1,0 +1,16 @@
+# --- Framework de python para Web ---
+Flask==3.0.2               
+Flask-Cors==4.0.0          
+
+# --- Datos &  APIs ---
+requests==2.31.0         
+python-dotenv==1.0.1       
+
+# --- Base de datos ---
+SQLAlchemy==2.0.28         # ORM to interact with the database using Python objects
+psycopg2-binary==2.9.9     # PostgreSQL adapter (common for production)
+
+# --- Dev & CI  ---
+pytest==8.1.1              
+flake8==7.0.0              
+pip-audit==2.7.2           

@@ -1,4 +1,4 @@
-name: Pez Colorado Quality Gate
+name: Testeo de Pez Colorado
 
 on: [push, pull_request]
 
