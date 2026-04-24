@@ -1,0 +1,35 @@
+name: Pez Colorado Quality Gate
+
+on: [push, pull_request]
+
+jobs:
+  quality-assurance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalación de Herramientas 
+        run: pip install flake8 pytest pip-audit
+
+      - name: Chequeo de Calidad de Código
+        run: |
+            pip install flake8
+            # Encontrar errores de sintaxis y errores de código potencialmente problemáticos
+            flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+            # Encontrar problemas de estilo de código (PEP8)
+            flake8 . --count --max-line-length=127 --statistics
+
+      - name: Chequeo de Vulnerabilidades y Compatibilidad de Paquetes
+        run: |
+            # 1. Chequea que no haya conflictos de dependencias en tu proyecto
+            pip check
+            # 2. Chequea que no haya vulnerabilidades conocidas en las dependencias
+            pip-audit
+
+      - name: 3. Ejecución de Pruebas Unitarias
+        run: pytest
