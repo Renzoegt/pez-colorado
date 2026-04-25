@@ -1,5 +1,3 @@
-# Se importa pero no se utiliza (error común)
-import os
 from flask import Flask, render_template, request
 from especies import es_talla_permitida, estado_veda
 
