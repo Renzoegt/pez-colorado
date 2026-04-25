@@ -1,5 +1,5 @@
 # Se importa pero no se utiliza (error común)
-import os 
+import os
 from flask import Flask, render_template, request
 from especies import es_talla_permitida, estado_veda
 
@@ -22,7 +22,7 @@ def verificar():
     # Validación básica de datos
     try:
         medida = int(medida_str)
-        mes = int(mes_str)  
+        mes = int(mes_str)
     except ValueError:
         medida = 0
         mes = 1
@@ -30,14 +30,14 @@ def verificar():
     # Ejecuta la lógica importada de especies.py
     talla_ok = es_talla_permitida(especie, medida)
     veda_status = estado_veda(mes)
-    
+
     # Crea el diccionario que el HTML leerá dentro de {% if resultado %}
     res_data = {
         "especie": especie,
         "talla_legal": talla_ok,
         "estado_temporada": veda_status
     }
-    
+
     return render_template('index.html', resultado=res_data)
 
 
