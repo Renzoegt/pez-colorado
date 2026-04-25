@@ -1,13 +1,16 @@
-import os # Se importa pero no se utiliza (error común)
-
+# Se importa pero no se utiliza (error común)
+import os 
 from flask import Flask, render_template, request
 from especies import es_talla_permitida, estado_veda
 
+
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
     return render_template('index.html', resultado=None)
+
 
 @app.route('/verificar', methods=['GET'])
 def verificar():
@@ -37,9 +40,6 @@ def verificar():
     
     return render_template('index.html', resultado=res_data)
 
-    def funcion_con_error():
-        x = 10 # Variable sin usar (error común)
-        return x 
 
 if __name__ == '__main__':
     app.run(debug=True)
