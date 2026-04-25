@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #f0f4f8;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#resultado {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.permitido {
+    color: green;
+    background: #e8f5e9;
+}
+
+.veda {
+    color: red;
+    background: #ffebee;
+}
