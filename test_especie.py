@@ -24,3 +24,8 @@ def test_dorado_talla_ilegal():
 def test_especie_no_registrada():
     # Si la especie no está en la normativa, debe rechazar por seguridad
     assert es_talla_permitida("Mojarra", 10) is False
+
+def test_veda_noviembre():
+    # Simulamos un error: Decimos que en noviembre debería estar "Abierta" 
+    # cuando la lógica del programa dice que es "Veda"
+    assert estado_veda(11) == "Abierta"
