@@ -13,9 +13,13 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Instalación de Herramientas 
-        run: pip install flake8 pytest pip-audit
-
+      - name: Instalar herramientas y dependencias
+        run: |
+            # 1. ACTUALIZAR PIP PRIMERO
+            python -m pip install --upgrade pip
+            # 2. Instalar el resto
+            pip install flake8 pytest pip-audit
+            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Chequeo de Calidad de Código
         run: |
             pip install flake8
